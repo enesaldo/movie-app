@@ -1,6 +1,6 @@
 import { fetcher } from "../../lib/fetcher";
-
-import Pagination from "../../components/pagination";
+import Pagination from "../../components/Pagination";
+import MovieCard from "@/components/MovieCard";
 
 type SearchResultsProps = {
   searchParams: {
@@ -22,24 +22,27 @@ export default async function SearchResults({
   const url = `https://api.themoviedb.org/3/search/movie`;
 
   const searchResults = await fetcher(url, { query, page });
+
+  if (!searchResults.results || searchResults.results.length === 0) {
+    return (
+      <div className="text-center py-10">
+        <h1 className="text-2xl font-bold">Film Bulunamadı</h1>
+        <p className="text-gray-500">
+          Aradığınız kriterlere uygun bir film bulunamadı. Lütfen başka bir
+          arama yapın.
+        </p>
+      </div>
+    );
+  }
+
   const movies = searchResults.results;
   const totalPages = searchResults.total_pages;
 
   return (
     <div>
-      <nav className="flex-wrap grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 text-overflow rounded-xl">
+      <nav className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 text-overflow rounded-xl">
         {movies.map((movie: Movie) => (
-          <div className="" key={movie.id}>
-            <img
-              className="w-full"
-              src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <h2 className="lg:space-y-5 space-x-5 truncate h-12  rounded-xl">
-              {movie.title}
-            </h2>
-            <p className="truncate h-12 ">{movie.overview}</p>
-          </div>
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </nav>
       <Pagination

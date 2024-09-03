@@ -1,13 +1,19 @@
-"use client";
-
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import Header from "@/components/Header";
-import SideBar from "@/components/sideBar";
-import MobileSideBar from "@/components/mobileSideBar";
-import { useState } from "react";
+import SideBar from "@/components/SideBar";
+import MobileSideBar from "@/components/MobileSideBar";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Movie App",
+  description: "A Movie App Details",
+  icons: {
+    icon: "/public/logo.svg",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -19,14 +25,14 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <Header />
         <div className="flex text-center">
-          <div className="invisible md:visible">
+          <div className="hidden md:block">
             <SideBar />
           </div>
-          <div className="visible: md:invisible">
+          <div className="block: md:hidden">
             <MobileSideBar />
           </div>
 
-          <main className="md:ml-64 ">{children}</main>
+          <main className="">{children}</main>
         </div>
       </body>
     </html>

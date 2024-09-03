@@ -1,10 +1,12 @@
+"use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string>("");
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -15,35 +17,36 @@ const Header = () => {
   };
 
   return (
-    <div className="flex backdrop-blur-2xl transition-colors p-5 bg-[#12121280] gap-4 md:gap-0 sticky z-50 top-0  justify-between">
+    <div className="flex backdrop-blur-2xl justify-between transition-colors p-5 bg-[#12121280] gap-4 md:gap-0 sticky z-50 top-0 ">
       <Link href={"/"}>
         <Image
-          src="/logo.png"
+          src="/logo.svg"
           alt="Logo"
-          width={120}
-          height={100}
+          width={40}
+          height={40}
           priority={true}
-          className="cursor-pointer sm:w-40 h-auto"
+          className="cursor-pointer  w-24  h-auto"
         />
       </Link>
       <form
         onSubmit={handleSearch}
-        className="flex sm:flex-row flex-col items-center"
+        className="flex sm:flex-row gap-2 flex-col max-md:w-full items-center"
       >
         <input
           type="text"
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="p-2 rounded sm:w-full w-20  bg-gray-800 text-white"
+          className="p-2 rounded  md:w-96 w-full  bg-gray-800 text-white"
         />
         <button
           type="submit"
-          className="sm:m-0 mt-2 sm:p-2 p-0.5 sm:w-max w-full sm:text-base text-xs bg-blue-600 text-white rounded"
+          className="sm:m-0 m-2 sm:p-2 p-0.5 sm:w-max w-full sm:text-base text-xs bg-purple-700 text-white rounded"
         >
           Search
         </button>
       </form>
+      <div></div>
     </div>
   );
 };

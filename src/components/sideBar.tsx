@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchGenres } from "../lib/fetcher";
@@ -19,21 +21,31 @@ export default function SideBar() {
   }, []);
 
   return (
-    <div className="flex fixed flex-col w-64 overflow-hidden text-overflow">
-      <h1 className=" text-2xl m-1 text-center justify-center">KATEGORİLER</h1>
-      <nav className="font-semibold text-lg w-64">
+    <div className="flex  flex-col w-64 overflow-hidden text-overflow  bg-gray-900 text-white shadow-lg">
+      <h1 className=" text-2xl ml-6 m-2 text-start justify-start">Genres</h1>
+      <nav className="space-y-2 px-6 flex flex-col overflow-y-auto">
         {genres.map((genre) => (
-          <div
-            key={genre.id}
-            className="m-1 ml-6 w-32 border-2 p-0.5 hover:bg-teal-700   opacity-80 hover:opacity-100"
-          >
-            <Link
-              className="space-y-2 text-xs flex"
-              href={`/genre/${genre.id}`}
-            >
-              {genre.name}
-            </Link>
-          </div>
+          <Link key={genre.id} href={`/genre/${genre.id}`}>
+            <div className="group flex items-center justify-between py-2 px-4 rounded-md bg-gray-800 hover:bg-purple-700 transition-colors duration-300">
+              <span className="text-base truncate group-hover:text-white">
+                {genre.name}
+              </span>
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </div>
+          </Link>
         ))}
       </nav>
     </div>
