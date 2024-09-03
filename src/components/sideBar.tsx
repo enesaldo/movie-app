@@ -26,7 +26,7 @@ export default function SideBar() {
       <nav className="space-y-2 px-6 flex flex-col overflow-y-auto">
         {genres.map((genre) => (
           <Link key={genre.id} href={`/genre/${genre.id}`}>
-            <div className="group flex items-center justify-between py-2 px-4 rounded-md bg-gray-800 hover:bg-purple-700 transition-colors duration-300">
+            <div className="group flex items-center justify-between py-2 px-4 rounded-md bg-gray-800 hover:bg-[#12121280] transition-colors duration-300">
               <span className="text-base truncate group-hover:text-white">
                 {genre.name}
               </span>

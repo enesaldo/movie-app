@@ -23,7 +23,7 @@ export default function Pagination({
           Previous
         </Link>
       )}
-      <span className="px-4 py-2 bg-gray-200 rounded">
+      <span className="px-4 py-2 bg-gray-500 rounded">
         Page {currentPage} of {totalPages}
       </span>
       {currentPage < totalPages && (

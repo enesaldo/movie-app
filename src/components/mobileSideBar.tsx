@@ -31,12 +31,13 @@ export default function SideBar() {
 
   return (
     <div
-      className={`fixed top-[76px] left-0 h-full w-full z-50 ${
+      className={`fixed top-[75px] left-0 h-auto w-full z-50 ${
         isOpen ? "bg-[#12121280]" : ""
       }`}
     >
       <div
-        className="text-2xl w-max backdrop-blur-2xl transition-colors bg-[#12121280] p-3 cursor-pointer flex justify-start items-center"
+        className="text-2xl w-max backdrop-blur-2xl transition-colors
+         p-3 cursor-pointer flex justify-start items-center"
         onClick={toggleIsOpen}
       >
         <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
@@ -50,10 +51,10 @@ export default function SideBar() {
         <h1 className="md:text-2xl text-lg m-1 ml-3 text-center justify-center">
           Genres
         </h1>
-        <nav className="space-y-2 p-6">
+        <div className="space-y-2  p-6">
           {genres.map((genre) => (
-            <Link key={genre.id} href={`/genre/${genre.id}`}>
-              <div className="group flex items-center justify-between py-2 px-4 rounded-md bg-gray-800 hover:bg-purple-700 transition-colors duration-300">
+            <Link key={genre.id} className="py-2" href={`/genre/${genre.id}`}>
+              <nav className="group flex items-center justify-between py-2 px-4 rounded-md bg-gray-800 hover:bg-[#12121280] transition-colors duration-300">
                 <span className="text-xs truncate group-hover:text-white">
                   {genre.name}
                 </span>
@@ -71,10 +72,10 @@ export default function SideBar() {
                     d="M9 5l7 7-7 7"
                   ></path>
                 </svg>
-              </div>
+              </nav>
             </Link>
           ))}
-        </nav>
+        </div>
       </div>
     </div>
   );

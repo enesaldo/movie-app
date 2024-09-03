@@ -36,7 +36,7 @@ export default async function GenreMovies({
   const movies = moviesData.results;
 
   return (
-    <div className="p-4">
+    <div className="p-4 justify-center items-center flex flex-col">
       <div className="flex-wrap grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10  rounded-xl">
         {movies.map((movie: Movie) => (
           <MovieCard key={movie.id} movie={movie} />

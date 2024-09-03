@@ -24,11 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <Header />
-        <div className="flex text-center">
+        <div className="flex ">
           <div className="hidden md:block">
             <SideBar />
           </div>
-          <div className="block: md:hidden">
+          <div className="block md:hidden">
             <MobileSideBar />
           </div>
 

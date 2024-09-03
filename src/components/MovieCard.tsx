@@ -13,27 +13,31 @@ interface MovieCardProps {
 
 export default function MovieCard({ movie }: MovieCardProps) {
   return (
-    <div key={movie.id} className="bg-gray-800 rounded-lg overflow-hidden ">
-      <div className="p-4 w-30">
-        <Link
-          href={`/movie/${movie.id}`}
-          className="text-blue-400 hover:underline"
-        >
-          <Image
-            width={500}
-            height={750}
-            src={
-              movie.poster_path
-                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                : defaultMovieIcon
-            }
-            alt={movie.title}
-            className="w-full  max-h-80 object-contain"
-          />
-        </Link>
-      </div>
+    <Link href={`/movie/${movie.id}`}>
+      <div
+        key={movie.id}
+        className="flex backdrop-blur-2xl text-center transition-colors justify-center  hover:bg-[#12121280] bg-gray-800 rounded-lg overflow-hidden "
+      >
+        <div className="flex justify-between flex-col ">
+          <div className="p-4 max-w-30">
+            <Image
+              width={500}
+              height={500}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : defaultMovieIcon
+              }
+              alt={movie.title}
+              className="w-full min-h-80 rounded-xl object-contain"
+            />
+          </div>
 
-      <h2 className="text-xl font-semibold">{movie.title}</h2>
-    </div>
+          <h2 className="text-xl pb-4 max-h-14  font-semibold">
+            {movie.title}
+          </h2>
+        </div>
+      </div>
+    </Link>
   );
 }

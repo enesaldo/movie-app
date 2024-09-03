@@ -2,6 +2,7 @@ import Image from "next/image";
 import { fetcher } from "../../../lib/fetcher";
 
 const defaultUserIcon = "/def-icon.png";
+const defaultMovieIcon = "/def-movie.png";
 
 const MovieDetail = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -23,7 +24,11 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
           <Image
             width={500}
             height={500}
-            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : defaultMovieIcon
+            }
             alt={movie.title}
             className="sm:w-full w-1/2 h-max object-cover mb-4 md:mb-0"
           />
@@ -33,7 +38,7 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
             {movie.title}
           </h1>
 
-          <p className="flex text-start mb-4">{movie.overview}</p>
+          <p className="flex justify-start text-start mb-4">{movie.overview}</p>
           {trailer && (
             <div className="mb-4">
               <h2 className="text-xl flex text-center font-semibold mb-2">
@@ -49,7 +54,7 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
           )}
           <div>
             <h2 className="text-xl font-semibold mb-2">Cast</h2>
-            <div className="justify-start grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2">
+            <div className="justify-start grid lg:grid-cols-4 sm:grid-cols-2  gap-2">
               {credits.cast.map((cast: any, index: number) => (
                 <div
                   key={index}

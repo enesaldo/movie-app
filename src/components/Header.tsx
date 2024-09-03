@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex backdrop-blur-2xl justify-between transition-colors p-5 bg-[#12121280] gap-4 md:gap-0 sticky z-50 top-0 ">
+    <div className="flex md:flex-row flex-row-reverse backdrop-blur-2xl justify-between transition-colors p-5 bg-[#12121280] gap-4 md:gap-0 sticky z-50 top-0 ">
       <Link href={"/"}>
         <Image
           src="/logo.svg"
@@ -30,7 +30,7 @@ const Header = () => {
       </Link>
       <form
         onSubmit={handleSearch}
-        className="flex sm:flex-row gap-2 flex-col max-md:w-full items-center"
+        className="flex sm:flex-row gap-2 flex-col md:m-0 ml-10 max-md:w-full items-center"
       >
         <input
           type="text"
@@ -41,7 +41,7 @@ const Header = () => {
         />
         <button
           type="submit"
-          className="sm:m-0 m-2 sm:p-2 p-0.5 sm:w-max w-full sm:text-base text-xs bg-purple-700 text-white rounded"
+          className="sm:m-0 m-2 sm:p-2 p-0.5 sm:w-max w-full  sm:text-base text-xs bg-purple-700  text-white rounded"
         >
           Search
         </button>
