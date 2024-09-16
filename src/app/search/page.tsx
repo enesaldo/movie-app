@@ -1,5 +1,5 @@
-import { fetcher } from "../../lib/fetcher";
-import Pagination from "../../components/Pagination";
+import { fetcher } from "@/lib/fetcher";
+import Pagination from "@/components/Pagination";
 import MovieCard from "@/components/MovieCard";
 
 type SearchResultsProps = {

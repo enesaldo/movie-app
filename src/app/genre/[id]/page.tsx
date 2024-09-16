@@ -1,6 +1,6 @@
-import Pagination from "../../../components/Pagination";
-import { fetcher } from "../../../lib/fetcher";
+import { fetcher } from "@/lib/fetcher";
 import MovieCard from "@/components/MovieCard";
+import Pagination from "@/components/Pagination";
 
 type GenreMoviesProps = {
   params: {
