@@ -22,6 +22,7 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
       <div className="flex justify-center flex-col  sm:flex-row">
         <div className="flex md:w-1/2 w-full h-max justify-center items-center">
           <Image
+            unoptimized
             width={500}
             height={500}
             src={
@@ -61,6 +62,7 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
                   className="mb-2 flex text-center  whitespace-nowrap  text-ellipsis"
                 >
                   <Image
+                    unoptimized
                     width={500}
                     height={750}
                     src={

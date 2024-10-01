@@ -21,6 +21,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
         <div className="flex justify-between flex-col ">
           <div className="p-4 max-w-30">
             <Image
+              unoptimized
               width={500}
               height={500}
               src={

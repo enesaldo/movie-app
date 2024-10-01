@@ -20,6 +20,7 @@ const Header = () => {
     <div className="flex md:flex-row flex-row-reverse backdrop-blur-2xl justify-between transition-colors p-5 bg-[#12121280] gap-4 md:gap-0 sticky z-50 top-0 ">
       <Link href={"/"}>
         <Image
+          unoptimized
           src="/logo.svg"
           alt="Logo"
           width={40}
